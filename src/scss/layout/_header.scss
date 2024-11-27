@@ -1,4 +1,5 @@
+@use 'base/variables' as v;
 .header {
-    background-color: $grisOscuro;
+    background-color: v.$grisOscuro;
     padding: 1rem 0 3rem 0;
 }

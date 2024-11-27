@@ -1,7 +1,14 @@
+@use 'base/variables' as v;
 .footer {
-    background-color: $grisOscuro;
+    padding: 2.5rem 0;
+    background-color: v.$grisOscuro;
 
     .contenedor-footer {
-        padding-top: $separacion/2;
+        padding-top: calc(v.$separacion /2);
+    }
+
+    .copyright {
+        color: #ffffff;
+        text-align: center;
     }
 }
