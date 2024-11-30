@@ -23,7 +23,7 @@ function css() {
     return src(paths.scss)
         .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(postcss([autoprefixer(), cssnano()]))
+        //.pipe(postcss([autoprefixer(), cssnano()]))
         // .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
         .pipe(dest('build/css'));
@@ -63,4 +63,4 @@ function watchArchivos() {
 
 exports.css = css;
 exports.watchArchivos = watchArchivos;
-exports.default = parallel(css, javascript, imagenes, versionWebp, watchArchivos); 
+exports.default = parallel(css, javascript, /*imagenes,*/ versionWebp, watchArchivos); 

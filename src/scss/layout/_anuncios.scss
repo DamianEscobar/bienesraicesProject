@@ -2,53 +2,78 @@
 @use 'base/mixins' as m;
 @use 'sass:color';
 
-@include m.tablet {
-    .contenedor-anuncios {
-        @include m.grid(3,2rem);
+.contenedor-anuncios {
+    @include m.tablet {
+            @include m.grid(3,2rem);
+        
     }
 }
+
 
 .anuncio {
     background-color: color.scale(v.$gris, $lightness: 80%);
     border: 1px solid color.scale(v.$grisOscuro, $lightness: 75%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .contenido-anuncio {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
         padding: 2rem;
 
         .boton-amarillo {
             @include m.boton(block,v.$amarillo);
+            margin-top: 0; 
+            
+        }
+
+    }
+
+    .aux-titulo {
+        flex-grow: 1;
+        h3, p {
+            margin: 0;
         }
     }
-    h3, p {
-        margin: 0;
+    
+    .aux-precio-li {
+        .precio {
+            color: v.$verde;
+            font-weight: v.$bold;
+            font-size: 2.4rem;
+            margin: 0;
+            padding-top: 1rem;
+        }
+
+            .iconos-caracteristicas {
+                list-style: none;
+                display: flex;
+                padding: 0;
+        
+                li {
+                    flex: .5rem;
+                    display: flex;
+                    align-items: center;
+            
+                    img {
+                        flex: 0 0 .5rem;
+                        margin-right: .5rem;
+                    }
+                    p {
+                        font-weight: v.$black;
+        
+                    }
+                }
+            
+            }
     }
-    .precio {
-        color: v.$verde;
-        font-weight: v.$bold;
-        font-size: 2.4rem;
-    }
+    
     
 }
 
-.iconos-caracteristicas {
-    list-style: none;
-    display: flex;
-    padding: 0;
 
-    li {
-        flex: 1;
-        display: flex;
-
-        img {
-            flex: 0 0 3rem;
-            margin-right: 1rem;
-        }
-        p {
-            font-weight: v.$black;
-        }
-    }
-
-}
 
 .ver-todas {
     @include m.boton(inline-block, v.$verde)
