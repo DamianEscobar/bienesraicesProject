@@ -11,7 +11,7 @@
 
 
 .anuncio {
-    background-color: color.scale(v.$gris, $lightness: 80%);
+    background-color: color.scale(v.$gris, $lightness: 60%);
     border: 1px solid color.scale(v.$grisOscuro, $lightness: 75%);
     display: flex;
     flex-direction: column;
@@ -29,50 +29,48 @@
             
         }
 
-    }
-
-    .aux-titulo {
-        flex-grow: 1;
-        h3, p {
-            margin: 0;
-        }
-    }
-    
-    .aux-precio-li {
-        .precio {
-            color: v.$verde;
-            font-weight: v.$bold;
-            font-size: 2.4rem;
-            margin: 0;
-            padding-top: 1rem;
-        }
-
-            .iconos-caracteristicas {
-                list-style: none;
-                display: flex;
-                padding: 0;
-        
-                li {
-                    flex: .5rem;
-                    display: flex;
-                    align-items: center;
-            
-                    img {
-                        flex: 0 0 .5rem;
-                        margin-right: .5rem;
-                    }
-                    p {
-                        font-weight: v.$black;
-        
-                    }
-                }
-            
-            }
-    }
-    
+    }  
     
 }
 
+.aux-titulo {
+    flex-grow: 1;
+    h3, p {
+        margin: 0;
+    }
+}
+
+.aux-precio-li {
+    .precio {
+        color: v.$verde;
+        font-weight: v.$bold;
+        font-size: 2.4rem;
+        margin: 0;
+        padding-top: 1rem;
+    }
+
+        .iconos-caracteristicas {
+            list-style: none;
+            display: flex;
+            padding: 0;
+    
+            li {
+                flex: .5rem;
+                display: flex;
+                align-items: center;
+        
+                img {
+                    flex: 0 0 .5rem;
+                    margin-right: .5rem;
+                }
+                p {
+                    font-weight: v.$black;
+    
+                }
+            }
+        
+        }
+}
 
 
 .ver-todas {
