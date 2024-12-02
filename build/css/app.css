@@ -681,6 +681,24 @@ h4 {
   color: #ffffff;
 }
 
+.formulario p {
+  font-size: 1.4rem;
+  color: #333333;
+  margin: 2rem 0 0 0;
+}
+.formulario legend {
+  font-size: 2rem;
+  color: #333333;
+}
+.formulario label {
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+.formulario input:not([type=submit]) {
+  padding: 0.5rem;
+}
+
 @media (min-width: 768px) {
   .contenido-nosotros {
     display: grid;

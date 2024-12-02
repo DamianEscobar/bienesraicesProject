@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+
+    p{
+        font-size: 1.4rem;
+        color: v.$grisOscuro;
+        margin: 2rem 0 0 0;
+    }
+
+    legend {
+        font-size: 2rem;
+        color: v.$grisOscuro;
+    }
+
+    label {
+        font-weight: v.$bold;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    input:not([type="submit"]) {
+        padding: .5rem;
+    }
+}
