@@ -20,7 +20,33 @@
         display: block;
     }
 
-    input:not([type="submit"]) {
+    input:not([type="submit"]), textarea, select {
         padding: .5rem;
+        display: block;
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid v.$gris;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+    textarea {
+        height: 20rem;
+    }
+
+    .forma-contacto {
+        max-width: 30rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    input[type="radio"] {
+        margin: 0;
+        width: auto;
+    }
+
+    .boton-verde {
+        @include m.boton(block,v.$verde);
     }
 }
+
