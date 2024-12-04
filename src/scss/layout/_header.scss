@@ -33,10 +33,17 @@
     justify-content: space-between;
 
     h1 {
-        text-align: left;
+        
+        text-align: center;
         color: #ffffff;
         font-weight: v.$bold;
         line-height: 2;
         max-width: 60rem;
+        margin: auto;
+
+        @include m.tablet {
+            text-align: left;
+            margin: 0;
+        }
     }
 }

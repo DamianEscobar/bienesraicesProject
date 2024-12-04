@@ -13,11 +13,18 @@
 
 .navegacion {
     display: none;
+    font-size: 1.8rem;
+
+    .mostrar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: stretch;
+    }
+
 
     @include m.tablet{
         display: flex;
         align-items: center;
-        font-size: 1.8rem;
     }
 
     a {

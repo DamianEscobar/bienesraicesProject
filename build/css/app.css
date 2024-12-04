@@ -412,11 +412,18 @@ h4 {
   justify-content: space-between;
 }
 .contenido-header h1 {
-  text-align: left;
+  text-align: center;
   color: #ffffff;
   font-weight: 700;
   line-height: 2;
   max-width: 60rem;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .contenido-header h1 {
+    text-align: left;
+    margin: 0;
+  }
 }
 
 .barra {
@@ -433,12 +440,17 @@ h4 {
 
 .navegacion {
   display: none;
+  font-size: 1.8rem;
+}
+.navegacion .mostrar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
 }
 @media (min-width: 768px) {
   .navegacion {
     display: flex;
     align-items: center;
-    font-size: 1.8rem;
   }
 }
 .navegacion a {
