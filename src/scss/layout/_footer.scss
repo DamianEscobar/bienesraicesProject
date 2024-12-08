@@ -4,6 +4,16 @@
     background-color: v.$grisOscuro;
     margin-bottom: 0;
 
+    .navegacion {
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        justify-content: space-between;
+        a {
+            margin-right: 1rem;
+        }
+    }
+
     .contenedor-footer {
         padding-top: calc(v.$separacion /2);
     }

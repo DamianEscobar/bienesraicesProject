@@ -1,10 +1,28 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
+.btn-dark {
+    position: absolute;
+    width: 3rem;
+    top: 14rem;
+    left: .5rem;
+    filter: invert(100%);
+    &:hover {
+        cursor: pointer;
+    }
+
+    @include m.tablet {
+        top: 6rem;
+        right: 1.9rem;
+        width: 4rem;
+    }
+}
+
 .barra {
     display: flex;
     flex-direction: column;
     padding-top: 3rem;
+
     @include m.tablet {
         flex-direction: row;
         justify-content: space-between;
@@ -12,18 +30,19 @@
 }
 
 .navegacion {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s ease-in-out, height .3s ease-in-out;
     font-size: 1.8rem;
+    height: 6rem;
 
-    .mostrar {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: stretch;
-    }
 
 
     @include m.tablet{
+        visibility: visible;
+        opacity: 1;
         display: flex;
+        height: auto;
         align-items: center;
     }
 
@@ -46,12 +65,29 @@
         }
     }
 }
-
 .mobile-menu {
-    width: 5rem;
+    position: absolute;
+    width: 3rem;
     margin-left: 3rem;
+    top: 10rem;
+    left: -2.5rem;
 
     @include m.tablet {
         display: none;
+    }
+}
+
+.mostrar {
+    visibility: visible;
+    opacity: 1;
+    height: 15.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: stretch;
+
+    @include m.tablet {
+        display: flex;
+        height: auto;
+        
     }
 }

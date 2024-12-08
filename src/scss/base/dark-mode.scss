@@ -1,0 +1,47 @@
+@use 'variables' as v;
+
+.dark-mode {
+    background-color: #222222;
+    color: #ffffff;
+
+    p {
+        color: #ffffff;
+    }
+
+    a,h1,h2,h3,h4 {
+        color: v.$gris;
+    }
+
+    .anuncio {
+        background-color: v.$grisOscuro;
+        border: 1px solid #434343;
+    }
+    .aux-precio-li {
+        img {
+            filter: invert(100%);
+        }
+    }
+
+    .formulario {
+        input:not([type=submit]) {
+            background-color: v.$grisOscuro;
+            color: #ffffff;
+            &::placeholder {
+                color: #ffffff;
+            }
+        }
+
+        textarea,select {
+            background-color: v.$grisOscuro;
+            color: #ffffff;
+        }
+
+        p{
+            color: #ffffff;
+        }
+
+        legend {
+            color: #CCCCCC;
+        }
+    }
+}

@@ -379,6 +379,41 @@ h4 {
   color: #E08709;
 }
 
+.dark-mode {
+  background-color: #222222;
+  color: #ffffff;
+}
+.dark-mode p {
+  color: #ffffff;
+}
+.dark-mode a, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4 {
+  color: #e1e1e1;
+}
+.dark-mode .anuncio {
+  background-color: #333333;
+  border: 1px solid #434343;
+}
+.dark-mode .aux-precio-li img {
+  filter: invert(100%);
+}
+.dark-mode .formulario input:not([type=submit]) {
+  background-color: #333333;
+  color: #ffffff;
+}
+.dark-mode .formulario input:not([type=submit])::placeholder {
+  color: #ffffff;
+}
+.dark-mode .formulario textarea, .dark-mode .formulario select {
+  background-color: #333333;
+  color: #ffffff;
+}
+.dark-mode .formulario p {
+  color: #ffffff;
+}
+.dark-mode .formulario legend {
+  color: #CCCCCC;
+}
+
 .no-web .inicio {
   background-image: url(../img/header.jpg);
 }
@@ -426,6 +461,24 @@ h4 {
   }
 }
 
+.btn-dark {
+  position: absolute;
+  width: 3rem;
+  top: 14rem;
+  left: 0.5rem;
+  filter: invert(100%);
+}
+.btn-dark:hover {
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .btn-dark {
+    top: 6rem;
+    right: 1.9rem;
+    width: 4rem;
+  }
+}
+
 .barra {
   display: flex;
   flex-direction: column;
@@ -439,17 +492,18 @@ h4 {
 }
 
 .navegacion {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, height 0.3s ease-in-out;
   font-size: 1.8rem;
-}
-.navegacion .mostrar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: stretch;
+  height: 6rem;
 }
 @media (min-width: 768px) {
   .navegacion {
+    visibility: visible;
+    opacity: 1;
     display: flex;
+    height: auto;
     align-items: center;
   }
 }
@@ -473,8 +527,11 @@ h4 {
 }
 
 .mobile-menu {
-  width: 5rem;
+  position: absolute;
+  width: 3rem;
   margin-left: 3rem;
+  top: 10rem;
+  left: -2.5rem;
 }
 @media (min-width: 768px) {
   .mobile-menu {
@@ -482,10 +539,34 @@ h4 {
   }
 }
 
+.mostrar {
+  visibility: visible;
+  opacity: 1;
+  height: 15.8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+}
+@media (min-width: 768px) {
+  .mostrar {
+    display: flex;
+    height: auto;
+  }
+}
+
 .footer {
   padding: 2rem 0;
   background-color: #333333;
   margin-bottom: 0;
+}
+.footer .navegacion {
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .navegacion a {
+  margin-right: 1rem;
 }
 .footer .contenedor-footer {
   padding-top: 2.5rem;
@@ -527,6 +608,7 @@ h4 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 .anuncio .contenido-anuncio {
   display: flex;
@@ -621,6 +703,7 @@ h4 {
   color: #ffffff;
 }
 .imagen-contacto p {
+  padding: 1rem;
   font-size: 2rem;
   color: #ffffff;
 }
@@ -665,7 +748,7 @@ h4 {
   color: #000;
 }
 .texto-entrada h4 {
-  margin: 0;
+  margin: 1rem 0;
   line-height: 1;
 }
 .texto-entrada h4::after {
