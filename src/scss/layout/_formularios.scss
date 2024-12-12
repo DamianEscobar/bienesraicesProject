@@ -45,8 +45,9 @@
         width: auto;
     }
 
-    .boton-verde {
-        @include m.boton(block,v.$verde);
-    }
+}
+
+.boton-verde {
+    @include m.boton(inline-block,v.$verde);
 }
 

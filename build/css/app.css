@@ -473,9 +473,9 @@ h4 {
 }
 @media (min-width: 768px) {
   .btn-dark {
-    top: 6rem;
+    top: 6.2rem;
     right: 1.9rem;
-    width: 4rem;
+    width: 3rem;
   }
 }
 
@@ -825,8 +825,9 @@ h4 {
   margin: 0;
   width: auto;
 }
-.formulario .boton-verde {
-  display: block;
+
+.boton-verde {
+  display: inline-block;
   background-color: #71B100;
   color: #fff;
   font-weight: 700;
@@ -836,7 +837,7 @@ h4 {
   margin-top: 2.5rem;
   border: none;
 }
-.formulario .boton-verde:hover {
+.boton-verde:hover {
   background-color: rgb(107.35, 168.15, 0);
   cursor: pointer;
 }

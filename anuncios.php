@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Bienes Raices</title>
-</head>
-<body>
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                  <img src="build/img/logo.svg" alt="Logotipo de Bienes Raices" />
-                </a>
-      
-                <div class="mobile-menu">
-                  <img src="build/img/barras.svg" alt="icono menu">
-                </div>
-                
-                  <nav class="navegacion">
-                    <a href="nosotros.html">Nosotros</a>
-                    <a href="anuncios.html">Anuncios</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contacto.html">Contacto</a>
-                  </nav>
-      
-                  <img class="btn-dark" src="build/img/dark-mode.svg" alt="darkMode">
-              
-              </div><!--.barra-->
 
+<?php 
+  require 'includes/funciones.php';
 
-        </div>
-    </header>
+  incluirTemplate('header'); 
+?>
 
     <main class="contenedor seccion">
         <h1>Casas y Depas en Venta</h1>
@@ -83,7 +55,7 @@
                 </li>
                 </ul>
             </div><!--.aux-precio-li-->
-                <a class="boton boton-amarillo" href="anuncio.html"> Ver Propiedad </a>
+                <a class="boton boton-amarillo" href="anuncio.php"> Ver Propiedad </a>
             </div><!--contenio-anuncio-->
             </div><!--anuncio-->
 
@@ -132,7 +104,7 @@
                     </li>
                 </ul>
                 </div><!--.aux-precio-li-->
-                <a class="boton boton-amarillo" href="anuncio.html"> Ver Propiedad </a>
+                <a class="boton boton-amarillo" href="anuncio.php"> Ver Propiedad </a>
             </div><!--contenio-anuncio-->
             </div><!--anuncio-->
 
@@ -180,7 +152,7 @@
                     </li>
                 </ul>
                 </div><!--.aux-precio-li-->
-                <a class="boton boton-amarillo" href="anuncio.html"> Ver Propiedad </a>
+                <a class="boton boton-amarillo" href="anuncio.php"> Ver Propiedad </a>
             </div><!--contenio-anuncio-->
             </div><!--anuncio-->
 
@@ -228,7 +200,7 @@
                     </li>
                 </ul>
                 </div><!--.aux-precio-li-->
-                <a class="boton boton-amarillo" href="anuncio.html"> Ver Propiedad </a>
+                <a class="boton boton-amarillo" href="anuncio.php"> Ver Propiedad </a>
             </div><!--contenio-anuncio-->
             </div><!--anuncio-->
 
@@ -276,7 +248,7 @@
                     </li>
                 </ul>
                 </div><!--.aux-precio-li-->
-                <a class="boton boton-amarillo" href="anuncio.html"> Ver Propiedad </a>
+                <a class="boton boton-amarillo" href="anuncio.php"> Ver Propiedad </a>
             </div><!--contenio-anuncio-->
             </div><!--anuncio-->
 
@@ -324,26 +296,10 @@
                     </li>
                 </ul>
                 </div><!--.aux-precio-li-->
-                <a class="boton boton-amarillo" href="anuncio.html"> Ver Propiedad </a>
+                <a class="boton boton-amarillo" href="anuncio.php"> Ver Propiedad </a>
             </div><!--contenio-anuncio-->
             </div><!--anuncio-->
         </div><!--.contenedor-anuncios-->
     </main>
 
-    <footer class="footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-
-        <p class="copyright">Todos los derechos Reservados 2024 &copy;</p>
-    </footer>
-    
-
-    <script src="build/js/bundle.min.js"></script>
-</body>
-</html>
+        <?php incluirTemplate('footer')?>
