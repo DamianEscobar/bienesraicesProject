@@ -21,7 +21,7 @@
   color: #ffffff;
 }
 .dark-mode .formulario input:not([type=submit])::placeholder {
-  color: #ffffff;
+  color: #5e5e5e;
 }
 .dark-mode .formulario textarea, .dark-mode .formulario select {
   background-color: #333333;
