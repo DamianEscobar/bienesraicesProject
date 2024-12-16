@@ -26,11 +26,16 @@
 
   // Ejecuta el codigo una vez el usuario envie el formulario
   if($_SERVER["REQUEST_METHOD"] === "POST") {
-    /*
-    echo '<pre>';
-    var_dump($_POST);
-    echo '</pre>';
-    */
+    
+    // echo '<pre>';
+    // var_dump($_POST);
+    // echo '</pre>';
+
+     //echo '<pre>';
+     //var_dump($_FILES);
+     //echo '</pre>';
+     //exit;
+    
 
     $titulo = mysqli_real_escape_string($db, $_POST['titulo']);
     $precio = mysqli_real_escape_string($db, $_POST['precio']);
@@ -41,6 +46,8 @@
     $vendedorId = mysqli_real_escape_string($db, $_POST['vendedor']);
     $creado = date('Y/m/d');
 
+    // Asignar files hacia una variable
+    $imagen = $_FILES['imagen'];
 
     if(!$titulo) {
       $errores[] = "Debes añadir un titulo";
@@ -48,6 +55,15 @@
     if(!$precio) {
       $errores[] = "Debes añadir un precio";
     }
+    if(!$imagen['name'] || $imagen['error']) {
+      $errores[] = "Debes añadir una imagen o la imagen supera el tamaño limite";
+    }
+    // Validare el tamaño de la imagen (maximo 2000kb)
+    $medida = 1000 * 2000;
+    if($imagen['size']  >  $medida) {
+      $errores[] = 'La imagen es muy pesada';
+    }
+
     if(strlen($descripcion) < 50) {
       $errores[] = "Debes añadir una descripcion y debe contener como minimo 50 caracteres";
     }
@@ -68,9 +84,23 @@
     // var_dump($errores);
     // echo '</pre>';
 
-
-    //Insertar en la base de datos
     if (empty($errores)) {
+      // Subida de imagenes
+      //Crear carpeta
+      $carpetaImagenes = '../../imagenes';
+
+      // Revisamos si existe la carpeta y la creamos
+      if(!is_dir($carpetaImagenes)) {
+        mkdir($carpetaImagenes);
+      }
+
+      //Subir la imagen a la carpeta
+      move_uploaded_file($imagen['tmp_name'],$carpetaImagenes . "/archvio.jpg");
+
+      exit;
+      
+
+      //Insertar en la base de datos
       $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado,vendedores_id) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado','$vendedorId')";
 
       $resultado = mysqli_query($db, $query);
@@ -81,8 +111,6 @@
       }
 
     }
-    
-
     
   }
 
@@ -104,7 +132,7 @@
 
         <?php } ?>
 
-        <form class="formulario" action="/admin/propiedades/crear.php" method="POST">
+        <form class="formulario" action="/admin/propiedades/crear.php" method="POST" enctype="multipart/form-data">
           <fieldset>
             <legend>Información General</legend>
 
@@ -129,8 +157,9 @@
             <label for="imagen">Imagen:</label>
             <input 
               type="file" 
-              id="imagen" 
-              accept="iamge/jpeg, image/png"
+              id="imagen"
+              name="imagen" 
+              accept="image/jpeg, image/png"
             >
 
             <label for="descripcion">Descripción:</label>
