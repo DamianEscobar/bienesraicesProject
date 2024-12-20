@@ -86,8 +86,12 @@
 
     if (empty($errores)) {
       // Subida de imagenes
+      //Generar nombre unico para la imagen
+      $nombreImagen = md5(uniqid(rand(),true)).".jpg";
+      var_dump($nombreImagen);
+
       //Crear carpeta
-      $carpetaImagenes = '../../imagenes';
+      $carpetaImagenes = '../../imagenes/';
 
       // Revisamos si existe la carpeta y la creamos
       if(!is_dir($carpetaImagenes)) {
@@ -95,31 +99,33 @@
       }
 
       //Subir la imagen a la carpeta
-      move_uploaded_file($imagen['tmp_name'],$carpetaImagenes . "/archvio.jpg");
-
-      exit;
+      move_uploaded_file($imagen['tmp_name'],$carpetaImagenes. $nombreImagen );
       
 
       //Insertar en la base de datos
-      $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado,vendedores_id) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado','$vendedorId')";
+      $query = "INSERT INTO propiedades (titulo, precio,  imagen, descripcion, habitaciones, wc, estacionamiento, creado,vendedores_id) VALUES ('$titulo', '$precio', '$nombreImagen','$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado','$vendedorId')";
 
       $resultado = mysqli_query($db, $query);
 
       if($resultado) {
         //Redireccionar si se inserta en la DB
-        header('Location: /admin/propiedades/crear.php');
+        header('Location: /admin/propiedades/crear.php?result=1');
       }
 
     }
     
   }
 
+  $result = $_GET['result'] ?? null;
 
   require '../../includes/funciones.php';
   incluirTemplate('header'); 
 ?>
 
     <main class="contenedor seccion">
+        <?php  if($result === "1"){ ?>
+          <p class="alerta exito">Anuncio Creado Correctamente.</p>
+        <?php }?>
         <h1>Crear</h1>
 
         <a href="/admin" class="boton boton-verde">Volver</a>

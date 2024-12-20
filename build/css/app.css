@@ -874,4 +874,7 @@ h4 {
 .alerta.error {
   background-color: #c20000;
 }
+.alerta.exito {
+  background-color: #71B100;
+}
 /*# sourceMappingURL=app.css.map */
