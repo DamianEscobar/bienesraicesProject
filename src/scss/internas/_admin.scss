@@ -1,4 +1,5 @@
 @use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .alerta {
     padding: .5rem;
@@ -13,5 +14,40 @@
     }
     &.exito {
         background-color: v.$verde;
+    }
+}
+
+table.propiedades {
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
+
+    thead {
+        background-color: v.$verde;
+
+        th {
+            color: #ffffff;
+            padding: 2rem;
+        }
+    }
+
+    .imagen-table {
+        width: 10rem;
+    }
+
+    tbody {
+        tr {
+
+            td {
+
+                .boton-rojo {
+                    @include m.boton(block,v.$rojo);
+                }
+                .boton-amarillo {
+                    @include m.boton(block,v.$amarillo);
+                }
+                
+            }
+        }
     }
 }

@@ -877,4 +877,50 @@ h4 {
 .alerta.exito {
   background-color: #71B100;
 }
+
+table.propiedades {
+  margin-top: 4rem;
+  width: 100%;
+  border-spacing: 0;
+}
+table.propiedades thead {
+  background-color: #71B100;
+}
+table.propiedades thead th {
+  color: #ffffff;
+  padding: 2rem;
+}
+table.propiedades .imagen-table {
+  width: 10rem;
+}
+table.propiedades tbody tr td .boton-rojo {
+  display: block;
+  background-color: #c20000;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: 2.5rem;
+  border: none;
+}
+table.propiedades tbody tr td .boton-rojo:hover {
+  background-color: rgb(184.3, 0, 0);
+  cursor: pointer;
+}
+table.propiedades tbody tr td .boton-amarillo {
+  display: block;
+  background-color: #E08709;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: 2.5rem;
+  border: none;
+}
+table.propiedades tbody tr td .boton-amarillo:hover {
+  background-color: rgb(212.8, 128.25, 8.55);
+  cursor: pointer;
+}
 /*# sourceMappingURL=app.css.map */
