@@ -923,4 +923,8 @@ table.propiedades tbody tr td .boton-amarillo:hover {
   background-color: rgb(212.8, 128.25, 8.55);
   cursor: pointer;
 }
+
+.imagen-small {
+  width: 30rem;
+}
 /*# sourceMappingURL=app.css.map */

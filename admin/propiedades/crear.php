@@ -88,7 +88,7 @@
       // Subida de imagenes
       //Generar nombre unico para la imagen
       $nombreImagen = md5(uniqid(rand(),true)).".jpg";
-      var_dump($nombreImagen);
+      //var_dump($nombreImagen);
 
       //Crear carpeta
       $carpetaImagenes = '../../imagenes/';
