@@ -16,9 +16,9 @@
   $query = "SELECT * FROM propiedades WHERE id = $id";
   $result = mysqli_query($db, $query);
   $propiedad = mysqli_fetch_assoc($result);
-echo "<pre>";
-var_dump($propiedad);
-echo "</pre>";
+//echo "<pre>";
+//var_dump($propiedad);
+//echo "</pre>";
 
   // Obtener los vendedores de la base de datos
   $query = "select * from vendedores";
@@ -45,9 +45,10 @@ echo "</pre>";
   // Ejecuta el codigo una vez el usuario envie el formulario
   if($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    // echo '<pre>';
-    // var_dump($_POST);
-    // echo '</pre>';
+     //echo '<pre>';
+     //var_dump($_POST);
+     //echo '</pre>';
+     //exit;
 
      //echo '<pre>';
      //var_dump($_FILES);
@@ -73,9 +74,7 @@ echo "</pre>";
     if(!$precio) {
       $errores[] = "Debes añadir un precio";
     }
-    if(!$imagen['name'] || $imagen['error']) {
-      $errores[] = "Debes añadir una imagen o la imagen supera el tamaño limite";
-    }
+   
     // Validare el tamaño de la imagen (maximo 2000kb)
     $medida = 1000 * 2000;
     if($imagen['size']  >  $medida) {
@@ -105,23 +104,25 @@ echo "</pre>";
     if (empty($errores)) {
       // Subida de imagenes
       //Generar nombre unico para la imagen
-      $nombreImagen = md5(uniqid(rand(),true)).".jpg";
+      //$nombreImagen = md5(uniqid(rand(),true)).".jpg";
       //var_dump($nombreImagen);
 
       //Crear carpeta
-      $carpetaImagenes = '../../imagenes/';
+      //$carpetaImagenes = '../../imagenes/';
 
       // Revisamos si existe la carpeta y la creamos
-      if(!is_dir($carpetaImagenes)) {
-        mkdir($carpetaImagenes);
-      }
+      //if(!is_dir($carpetaImagenes)) {
+      //  mkdir($carpetaImagenes);
+      //}
 
       //Subir la imagen a la carpeta
-      move_uploaded_file($imagen['tmp_name'],$carpetaImagenes. $nombreImagen );
+      //move_uploaded_file($imagen['tmp_name'],$carpetaImagenes. $nombreImagen );
       
 
       //Insertar en la base de datos
-      $query = "INSERT INTO propiedades (titulo, precio,  imagen, descripcion, habitaciones, wc, estacionamiento, creado,vendedores_id) VALUES ('$titulo', '$precio', '$nombreImagen','$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado','$vendedorId')";
+      $query = "UPDATE propiedades SET titulo = '$titulo', precio = '$precio', descripcion = '$descripcion', habitaciones = $habitaciones, wc = $wc, estacionamiento = $estacionamiento, vendedores_id = $vendedorId WHERE id = $id ";
+
+      //echo $query; exit;
 
       $resultado = mysqli_query($db, $query);
 
@@ -156,7 +157,7 @@ echo "</pre>";
 
         <?php } ?>
 
-        <form class="formulario" action="/admin/propiedades/actualizar.php" method="POST" enctype="multipart/form-data">
+        <form class="formulario" method="POST" enctype="multipart/form-data">
           <fieldset>
             <legend>Información General</legend>
 
