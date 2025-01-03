@@ -109,23 +109,20 @@
 
       if($resultado) {
         //Redireccionar si se inserta en la DB
-        header('Location: /admin/propiedades/crear.php?result=1');
+        header('Location: /admin?result=1');
       }
 
     }
     
   }
 
-  $result = $_GET['result'] ?? null;
 
   require '../../includes/funciones.php';
   incluirTemplate('header'); 
 ?>
 
     <main class="contenedor seccion">
-        <?php  if($result === "1"){ ?>
-          <p class="alerta exito">Anuncio Creado Correctamente.</p>
-        <?php }?>
+
         <h1>Crear</h1>
 
         <a href="/admin" class="boton boton-verde">Volver</a>

@@ -41,6 +41,7 @@ table.propiedades {
             td {
 
                 .boton-rojo {
+                    width: 100%;
                     @include m.boton(block,v.$rojo);
                 }
                 .boton-amarillo {

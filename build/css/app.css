@@ -379,6 +379,10 @@ h4 {
   color: #E08709;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 .dark-mode {
   background-color: #222222;
   color: #ffffff;
@@ -894,6 +898,7 @@ table.propiedades .imagen-table {
   width: 10rem;
 }
 table.propiedades tbody tr td .boton-rojo {
+  width: 100%;
   display: block;
   background-color: #c20000;
   color: #fff;

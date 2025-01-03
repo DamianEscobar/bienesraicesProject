@@ -103,24 +103,33 @@
 
     if (empty($errores)) {
       // Subida de imagenes
-      //Generar nombre unico para la imagen
-      //$nombreImagen = md5(uniqid(rand(),true)).".jpg";
-      //var_dump($nombreImagen);
 
       //Crear carpeta
-      //$carpetaImagenes = '../../imagenes/';
+      $carpetaImagenes = '../../imagenes/';
 
       // Revisamos si existe la carpeta y la creamos
-      //if(!is_dir($carpetaImagenes)) {
-      //  mkdir($carpetaImagenes);
-      //}
+      if(!is_dir($carpetaImagenes)) {
+        mkdir($carpetaImagenes);
+      }
+
+
+      if($imagen['name']) {
+        // Eliminar imagen anterior
+        unlink($carpetaImagenes . $propiedad['imagen']);
+
+      //Generar nombre unico para la imagen
+      $nombreImagen = md5(uniqid(rand(),true)).".jpg";
+      //var_dump($nombreImagen);
 
       //Subir la imagen a la carpeta
-      //move_uploaded_file($imagen['tmp_name'],$carpetaImagenes. $nombreImagen );
+      move_uploaded_file($imagen['tmp_name'],$carpetaImagenes . $nombreImagen );
+      } else {
+        $nombreImagen = $propiedad['imagen'];
+      }
       
 
       //Insertar en la base de datos
-      $query = "UPDATE propiedades SET titulo = '$titulo', precio = '$precio', descripcion = '$descripcion', habitaciones = $habitaciones, wc = $wc, estacionamiento = $estacionamiento, vendedores_id = $vendedorId WHERE id = $id ";
+      $query = "UPDATE propiedades SET titulo = '$titulo', precio = '$precio',imagen = '$nombreImagen', descripcion = '$descripcion', habitaciones = $habitaciones, wc = $wc, estacionamiento = $estacionamiento, vendedores_id = $vendedorId WHERE id = $id ";
 
       //echo $query; exit;
 
@@ -128,23 +137,19 @@
 
       if($resultado) {
         //Redireccionar si se inserta en la DB
-        header('Location: /admin/propiedades/actualizar.php?result=1');
+        header('Location: /admin?result=2');
       }
 
     }
     
   }
 
-  $result = $_GET['result'] ?? null;
-
   require '../../includes/funciones.php';
   incluirTemplate('header'); 
 ?>
 
     <main class="contenedor seccion">
-        <?php  if($result === "1"){ ?>
-          <p class="alerta exito">Anuncio Creado Correctamente.</p>
-        <?php }?>
+
         <h1>Actualizar</h1>
 
         <a href="/admin" class="boton boton-verde">Volver</a>
