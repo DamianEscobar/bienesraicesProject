@@ -2,10 +2,10 @@
 
 function conectarDB() : mysqli {
     // El del work
-     $db = mysqli_connect('localhost', 'root', 'Rootpass7', 'bienesraices_crud');
+    //$db = mysqli_connect('localhost', 'root', 'Rootpass7', 'bienesraices_crud');
 
     //El de casa
-    //$db = mysqli_connect('localhost', 'root', 'sqlmy7', 'bienesraices_crud2');
+    $db = new mysqli('localhost', 'root', 'sqlmy7', 'bienesraices_crud2');
 
     if(!$db) {
         echo "Error no se pudo conectar";

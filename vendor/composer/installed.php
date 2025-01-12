@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'fabe86671b415462477124b2ef2b043d07a67541',
+        'name' => 'kedska-sama/bienesraices-project',
+        'dev' => true,
+    ),
+    'versions' => array(
+        'intervention/gif' => array(
+            'pretty_version' => '4.2.0',
+            'version' => '4.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/gif',
+            'aliases' => array(),
+            'reference' => '42c131a31b93c440ad49061b599fa218f06f93be',
+            'dev_requirement' => false,
+        ),
+        'intervention/image' => array(
+            'pretty_version' => '3.10.2',
+            'version' => '3.10.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'reference' => '1c68e5fdf443374f3580c5b920a7f177eccdab85',
+            'dev_requirement' => false,
+        ),
+        'kedska-sama/bienesraices-project' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'fabe86671b415462477124b2ef2b043d07a67541',
+            'dev_requirement' => false,
+        ),
+    ),
+);
