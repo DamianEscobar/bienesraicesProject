@@ -2,6 +2,7 @@
   require '../../includes/app.php';
 
   use App\Propiedad;
+  use App\Vendedor;
   use Intervention\Image\Drivers\Gd\Driver;
   use Intervention\Image\ImageManager as Image;
 
@@ -9,21 +10,12 @@
   // Autenticar al usuario
    estaAuten();
 
-  //Base de datos
-  $db = conectarDB();
-
   $propiedad = new Propiedad;
 
   // Obtener los vendedores de la base de datos
-  $query = "select * from vendedores";
-  $vendedores = mysqli_query($db, $query);
-
-  if (!$vendedores) {
-    die("Error en la consulta SQL: " . mysqli_error($db));
-  }
+  $vendedores = Vendedor::all();
 
   $errores = Propiedad::getErrores();
-
 
   // Ejecuta el codigo una vez el usuario envie el formulario
   if($_SERVER["REQUEST_METHOD"] === "POST") {

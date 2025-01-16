@@ -1,6 +1,7 @@
 <?php
 
 use App\Propiedad;
+use App\Vendedor;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager as Image;
 
@@ -22,12 +23,7 @@ use Intervention\Image\ImageManager as Image;
 
 
   // Obtener los vendedores de la base de datos
-  $query = "select * from vendedores";
-  $vendedores = mysqli_query($db, $query);
-
-  // if (!$vendedores) {
-  //   die("Error en la consulta SQL: " . mysqli_error($db));
-  // }
+  $vendedores = Vendedor::all();
 
 
   //Arreglo de errores
@@ -101,5 +97,5 @@ use Intervention\Image\ImageManager as Image;
           >
         </form>
     </main>
-
+ 
     <?php incluirTemplate('footer')?>
